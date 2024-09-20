@@ -1,0 +1,8 @@
+prefix=/home/robotic/catkin_ws/install
+
+Name: tm_driver
+Description: Description of tm_driver
+Version: 1.1.3
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: actionlib control_msgs geometry_msgs roscpp sensor_msgs

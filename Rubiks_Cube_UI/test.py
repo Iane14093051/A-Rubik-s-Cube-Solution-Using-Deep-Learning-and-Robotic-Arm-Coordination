@@ -1,0 +1,27 @@
+def rotate90_chong():
+    robot.set_TMPos(position_scan)
+    time.sleep(7)
+    robot.set_TMPos(position_scan_grip_up)
+    robot.set_TMPos(position_scan_grip)
+    g.gripper_soft_off()
+    #flip90
+    robot.set_TMPos(position_place)
+    robot.set_TMPos(position_flip)
+    robot.set_TMPos(position_down_flip)
+    g.gripper_on()
+    robot.set_TMPos(position_up_flip)
+    robot.set_TMPos(position_place)
+    robot.set_TMPos(position_down)
+    g.gripper_soft_off()
+    #place180
+    robot.set_TMPos(position_place_180)
+    robot.set_TMPos(position_down_180)
+    g.gripper_on()
+    robot.set_TMPos(position_down)
+    time.sleep(10)
+    g.gripper_soft_off()
+    robot.set_TMPos(position_place)
+
+    robot.set_TMPos(position_scan_grip_up)
+    robot.set_TMPos(position_scan_grip)
+    g.gripper_on()

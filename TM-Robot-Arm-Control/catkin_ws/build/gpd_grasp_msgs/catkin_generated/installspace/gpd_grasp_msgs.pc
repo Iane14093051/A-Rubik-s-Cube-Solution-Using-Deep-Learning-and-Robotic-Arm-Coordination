@@ -1,0 +1,8 @@
+prefix=/home/robotic/catkin_ws/install
+
+Name: gpd_grasp_msgs
+Description: Description of gpd_grasp_msgs
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime

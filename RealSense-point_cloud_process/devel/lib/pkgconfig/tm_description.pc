@@ -1,0 +1,8 @@
+prefix=/home/robotic/catkin_ws/devel
+
+Name: tm_description
+Description: Description of tm_description
+Version: 1.1.2
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

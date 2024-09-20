@@ -1,0 +1,1 @@
+/usr/bin/c++  -O3 -O3 -msse4.2 -mfpmath=sse -mtune=native  -rdynamic CMakeFiles/SDFGen.dir/main.o CMakeFiles/SDFGen.dir/makelevelset3.o  -o ../bin/SDFGen 

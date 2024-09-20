@@ -1,0 +1,8 @@
+prefix=/home/robotic/catkin_ws/install
+
+Name: sicks300
+Description: Description of sicks300
+Version: 1.0.5
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lserialcomm_s300
+Requires: roscpp tf sensor_msgs

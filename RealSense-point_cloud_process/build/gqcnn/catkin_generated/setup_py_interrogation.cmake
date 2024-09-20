@@ -1,0 +1,7 @@
+set(gqcnn_SETUP_PY_SETUP_MODULE "setuptools")
+set(gqcnn_SETUP_PY_VERSION "1.3.0")
+set(gqcnn_SETUP_PY_SCRIPTS "")
+set(gqcnn_SETUP_PY_PACKAGES "gqcnn")
+set(gqcnn_SETUP_PY_PACKAGE_DIRS "gqcnn")
+set(gqcnn_SETUP_PY_MODULES "")
+set(gqcnn_SETUP_PY_MODULE_DIRS "")

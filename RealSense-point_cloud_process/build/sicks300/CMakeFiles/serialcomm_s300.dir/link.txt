@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -std=c++11  -shared -Wl,-soname,libserialcomm_s300.so -o /home/robotic/catkin_ws/devel/lib/libserialcomm_s300.so CMakeFiles/serialcomm_s300.dir/src/serialcomm_s300.cpp.o 

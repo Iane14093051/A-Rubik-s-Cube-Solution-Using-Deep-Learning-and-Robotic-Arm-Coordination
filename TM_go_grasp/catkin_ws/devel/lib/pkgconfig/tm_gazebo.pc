@@ -1,0 +1,8 @@
+prefix=/home/robotic/catkin_ws/devel
+
+Name: tm_gazebo
+Description: Description of tm_gazebo
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

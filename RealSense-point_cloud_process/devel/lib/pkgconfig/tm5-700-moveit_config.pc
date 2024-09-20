@@ -1,0 +1,8 @@
+prefix=/home/robotic/catkin_ws/devel
+
+Name: tm5-700-moveit_config
+Description: Description of tm5-700-moveit_config
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

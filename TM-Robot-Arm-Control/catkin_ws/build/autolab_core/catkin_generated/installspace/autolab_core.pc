@@ -1,0 +1,8 @@
+prefix=/home/robotic/catkin_ws/install
+
+Name: autolab_core
+Description: Description of autolab_core
+Version: 1.1.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

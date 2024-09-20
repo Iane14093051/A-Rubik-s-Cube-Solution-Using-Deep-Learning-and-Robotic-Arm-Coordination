@@ -1,0 +1,8 @@
+prefix=/home/robotic/catkin_ws/install
+
+Name: tm12x-moveit_config
+Description: Description of tm12x-moveit_config
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

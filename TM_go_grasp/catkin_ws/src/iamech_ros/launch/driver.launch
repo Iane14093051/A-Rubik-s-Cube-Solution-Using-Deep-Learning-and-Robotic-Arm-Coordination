@@ -1,0 +1,91 @@
+<launch> <!-- Version 2.0 -->
+
+<arg name="namespace" default="iAmech"/>
+
+<!--AMM parameters-->
+<arg name="virtual_plc" default="False"/>
+<arg name="send_tf" default="True"/>
+<arg name="fps" default="60"/>
+<arg name='init_serveon' default="False"/>
+<arg name='timeout' default="1.0"/>
+
+<!--2D LiDAR parameters-->
+<arg name="rplidar" default="False"/>
+<arg if="$(arg rplidar)" name="sicklidar" default="False"/>
+<arg unless="$(arg rplidar)" name="sicklidar" default="True"/>
+<arg name="rp_devicename" default="/dev/rplidar"/>
+<arg name="front_sick_devicename" default="/dev/front_S300"/>
+<arg name="back_sick_devicename" default="/dev/back_S300"/>
+
+<!-- 3D LiDAR parameters -->
+<arg name='velodyne' default="False"/>
+
+<!--Realsense parameters-->
+<arg name="rs_camera" default="True"/>
+
+<group>
+    <group if="$(arg rplidar)">
+        <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0.54 0.0 0.0 -3.14 0.0 0.0 /base_link /laser 10"/>
+        <include file="$(find rplidar_ros)/launch/rplidar_a3.launch">
+            <param name="serial_port"         type="string" value="$(arg rp_devicename)"/> 
+        </include>
+    </group>
+
+    <group if="$(arg sicklidar)">
+        <node pkg="tf" type="static_transform_publisher" name="base_link_to_front_s300" args="0.59623 -0.37123 0.00 -0.7867 0.0 3.14 /base_link /front_laser 30"/>
+        <node name="front_s300" pkg="sicks300" type="sick300_driver" args="">
+            <param name='frame' value='front_laser'/>
+            <param name="devicename" value="$(arg front_sick_devicename)"/>
+            <param name='send_transform' value='False'/>
+            <remap from='laserscan' to='/scan_front'/>
+        </node>
+
+        <node pkg="tf" type="static_transform_publisher" name="base_link_to_back_s300" args="-0.59623 0.37123 0.00 2.3548 0.0 3.14 /base_link /back_laser 30"/>
+        <node name="back_s300" pkg="sicks300" type="sick300_driver" args="">
+            <param name='frame' value='back_laser'/>
+            <param name="devicename" value="$(arg back_sick_devicename)"/>
+            <param name='send_transform' value="False"/>
+            <remap from='laserscan' to='/scan_back'/>
+        </node>
+
+        <node pkg="tf" type="static_transform_publisher" name="link0" args=" 0.0 0.0 0.0 0.0 0.0 0.0 base_link laser 30" />
+        <node pkg="ira_laser_tools" name="laserscan_multi_merger" type="laserscan_multi_merger">
+            <param name="destination_frame" value="laser"/>
+            <param name="scan_destination_topic" value="/scan"/>
+            <param name="laserscan_topics" value ="/scan_front /scan_back" />
+            <param name='angle_min' value = "-3.14"/>
+            <param name='angle_max' value = "3.14"/>
+            <param name="angle_increment" value="0.001"/>
+        </node>
+    </group>
+
+    <group if="$(arg velodyne)">
+        <node pkg="tf" type="static_transform_publisher" name="base_link_to_velodyne" args="0.54 -0.3 0.0 0.0 0.0 0.0 /base_link /velodyne 30"/>
+        <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch"/>
+    </group>
+
+    <group if="$(arg rs_camera)">
+        <node pkg="tf" type="static_transform_publisher" name="base_link_to_camera" args="0.11 0.1 0.15 0.0 0.0 0.0 /base_link /camera_link 10"/>
+        <include file="$(find realsense2_camera)/launch/rs_aligned_depth.launch">
+            <param name="initial_reset" value="true"/>
+        </include>
+        <!-- <include file="$(find iamech_ros)/launch/rs_d435i.launch"/> -->
+    </group>
+
+    <node name="iAmech_odometry" pkg="iamech_ros" type="iamech_odom.py" output="screen" args="">
+        <param name="~virtual_plc" value="$(arg virtual_plc)"/>
+        <param name="~send_tf" value="$(arg send_tf)"/>
+        <param name="~fps" value="$(arg fps)"/>
+        <param name="~timeout" value="5.0"/>
+    </node>
+
+    <node name="Manager" pkg="iamech_ros" type="PLC_Manager.py" output="screen" args="">
+        <param name="~virtual_plc" value="$(arg virtual_plc)"/>
+        <param name="~send_tf" value="$(arg send_tf)"/>
+        <param name="~fps" value="$(arg fps)"/>
+        <param name="~timeout" value="5.0"/>
+    </node>
+
+</group>
+
+</launch>
