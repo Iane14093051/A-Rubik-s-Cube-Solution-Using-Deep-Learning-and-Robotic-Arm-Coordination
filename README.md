@@ -55,7 +55,7 @@ Please refer to the following format:
 
 
 5.Launch the UI to perform the Rubik's Cube solving steps and visualize relevant information about the cube.
-[https://github.com/Iane14093051/Rubiks_Cube_UI](https://github.com/Iane14093051/Rubiks_Cube_UI)
+[Rubiks_Cube_UI](https://github.com/Iane14093051/Rubiks_Cube_UI)
 
 
 ## Future works
