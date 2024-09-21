@@ -6,10 +6,10 @@ With the rapid advancement of human-robot collaboration, we can now employ robot
 ***
 ## **Introduction**
 
-We are developing a Rubik's Cube collaboration system that integrates various software and         hardware technologies to achieve human-robot interaction for solving the cube.
+We are developing a Rubik's Cube collaboration system that integrates various software and hardware technologies to achieve human-robot interaction for solving the cube.
 
 - Sensors: RGB-D Depth Camera Realsense D435
-- Robotic Arm: TM Robot
+- Robotic Arm: TM_Robot
 - Image Processing: OpenCV
 - Algorithm: Kociemba's two-phase algorithm
 - Deep Learning: PointNetGPD
@@ -38,11 +38,11 @@ Please refer to the following format:
 
 ## Usage
 
-1.Start the hand-eye calibration process to align the coordinates between the camera and the arm.
+1.Start the hand-eye calibration process to align the coordinates between the camera and robotics arm.
 [TM_Robot_Arm-calibration](https://github.com/Iane14093051/TM_Robot_Arm-calibration)
 
 
-2.Connect the TM robot arm and import the relevant arm operation functions.
+2.Connect the TM_Robot arm and import the relevant arm operation functions.
 [TM_Robot_Arm-Control](https://github.com/Iane14093051/TM_Robot_Arm-Control/tree/main)
 
 
@@ -50,7 +50,7 @@ Please refer to the following format:
 [RealSense-point_cloud_process](https://github.com/Iane14093051/RealSense-point_cloud_process)
 
 
-4.Receive point cloud data and input it into the trained model, then send the predicted grasping position to the TM robot arm for grabbing. 
+4.Receive point cloud data and input it into the trained model, then send the predicted grasping position and orientation to the TM_Robot arm for grabbing. 
 [TM_Robot_Arm-go-grasp](https://github.com/Iane14093051/TM_Robot_Arm-go-grasp)
 
 
