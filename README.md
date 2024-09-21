@@ -75,5 +75,4 @@ We are working to enhance Steps 1 through 5 to enable independent testing. Addit
 
 ## Demo
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/"aG4lePK26F8"/0.jpg)]
-(https://www.youtube.com/watch?v=aG4lePK26F8 "Demo Video")
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/aG4lePK26F8/0.jpg)](https://www.youtube.com/watch?v=aG4lePK26F8)
